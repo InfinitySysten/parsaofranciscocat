@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capelas e Pastorais - Paróquia São Francisco de Assis</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <!-- Reutilize o mesmo Header do index.html -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1>Paróquia São Francisco de Assis</h1>
+                    <span class="tagline">Comunidade de Fé e Amor</span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html" class="nav-link">Início</a></li>
+                        <li><a href="jornal.html" class="nav-link">Jornal</a></li>
+                        <li><a href="jogos.html" class="nav-link">Jogos</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="capelas-pastorais" class="section">
+            <div class="container">
+                <div id="cards-view">
+                    <!-- Seção para Capelas -->
+                    <div class="section-header">
+                        <h2 class="section-title">Nossas Capelas</h2>
+                        <p class="section-subtitle">Conheça as comunidades que formam nossa paróquia.</p>
+                    </div>
+                    <div id="capelas-container" class="cards-container">
+                        <!-- Cards das capelas serão carregados aqui -->
+                    </div>
+
+                    <!-- Seção para Pastorais -->
+                    <div class="section-header" style="margin-top: 4rem;"> <!-- Adiciona um espaço extra acima -->
+                        <h2 class="section-title">Nossas Pastorais</h2>
+                        <p class="section-subtitle">Grupos de serviço e evangelização dedicados à comunidade.</p>
+                    </div>
+                    <div id="pastorais-container" class="cards-container">
+                        <!-- Cards das pastorais serão carregados aqui -->
+                    </div>
+                </div>
+
+                <div id="back-button-container" class="back-button-container" style="display: none;">
+                    <button id="back-button" class="btn btn-primary">Voltar para os Cards</button>
+                </div>
+
+                <!-- Conteúdo Carregado Dinamicamente -->
+                <div id="conteudo-dinamico" class="content-area">
+                    <!-- O conteúdo da capela ou pastoral será inserido aqui -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reutilize o mesmo Footer do index.html -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Paróquia São Francisco</h3>
+                    <p>Uma comunidade de fé, esperança e amor</p>
+                </div>
+                <div class="footer-links">
+                    <p>&copy; 2025 Paróquia São Francisco. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/capelas-pastorais.js"></script>  
+</body>
+</html>
