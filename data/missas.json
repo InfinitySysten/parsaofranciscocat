@@ -1,0 +1,58 @@
+{
+  "titulo": "Horários de Missas",
+  "horarios_regulares": {
+    "domingo": {
+      "horarios": ["08:30", "19:00"],
+      "destaque": true,
+      "observacao": "Missas dominicais com maior participação da comunidade"
+    },
+    "segunda": {
+      "horarios": ["07:00"],
+      "destaque": false,
+      "observacao": ""
+    },
+    "terca": {
+      "horarios": ["19:30"],
+      "destaque": false,
+      "observacao": ""
+    },
+    "quarta": {
+      "horarios": ["19:30"],
+      "destaque": false,
+      "observacao": ""
+    },
+    "quinta": {
+      "horarios": ["07:00"],
+      "destaque": false,
+      "observacao": ""
+    },
+    "sexta": {
+      "horarios": ["19:30"],
+      "destaque": false,
+      "observacao": ""
+    },
+    "sabado": {
+      "horarios": ["19:00"],
+      "destaque": false,
+      "observacao": "Missa de sábado antecipa o domingo"
+    }
+  },
+  "eventos_especiais": [
+    {
+      "nome": "Confissões",
+      "descricao": "Quartas (Manhã e Tarde) e aos Sábados de Manhã",
+      "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761262396/confissao_hytt0h.jpg"
+    },
+    {
+      "nome": "Batizados",
+      "descricao": "Agendamento na Secretaria ou Ligue (17) 3522-8159",
+      "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761262736/batizado_kpqvnv.jpg"
+    },
+    {
+      "nome": "Casamentos",
+      "descricao": "Agendamento com 6 meses de antecedência.",
+      "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761262853/casamento_uugfnz.jpg"
+    }
+  ]
+}
+
