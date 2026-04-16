@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerInterval;
     let seconds = 0;
     let isLocked = false; // Bloqueia o clique enquanto verifica os pares
+    let currentLevel = null;
+    let currentLevelIndex = 1;
 
     // Carrega os dados e inicializa
     async function init() {
@@ -44,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startGame(level) {
+        currentLevel = level;
+        currentLevelIndex = gameData.niveis.indexOf(level) + 1;
         levelSelectionScreen.style.display = 'none';
         endScreen.style.display = 'none';
         gameScreen.style.display = 'block';
@@ -150,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameScreen.style.display = 'none';
         endScreen.style.display = 'block';
         finalStatsEl.textContent = `Você completou o jogo em ${timerEl.textContent.replace('Tempo: ', '')} com ${moves} movimentos!`;
+        salvarPontuacaoMemoria();
     }
 
     playAgainBtn.addEventListener('click', () => {
@@ -223,6 +228,69 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    async function salvarPontuacaoMemoria() {
+        try {
+            if (!auth || !auth.token()) return; // só salva se logado
+
+            await fetch("/api/salvar-memoria", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${auth.token()}`
+                },
+                body: JSON.stringify({
+                    nivel: currentLevelIndex,
+                    tempo: seconds,
+                    erros: moves
+                })
+            });
+
+        } catch (e) {
+            console.error("Erro ao salvar pontuação:", e);
+        }
+    }
+
+    async function carregarRankingMemoria(nivel = 1) {
+        try {
+            const res = await fetch(`/api/ranking-memoria?nivel=${nivel}`);
+            const data = await res.json();
+
+            const list = document.getElementById("ranking-list");
+            list.innerHTML = "";
+
+            data.ranking.forEach((item, index) => {
+                const li = document.createElement("li");
+
+                const tempo = formatarTempo(item.tempo);
+
+                li.innerHTML = `
+                    <span>${index + 1}. ${item.username}</span>
+                    <span>${tempo}</span>
+                `;
+
+                list.appendChild(li);
+            });
+
+        } catch (e) {
+            console.error("Erro ao carregar ranking", e);
+        }
+    }
+
+    function formatarTempo(seconds) {
+        const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+        const secs = String(seconds % 60).padStart(2, '0');
+        return `${mins}:${secs}`;
+    }
+
+    const rankingSelect = document.getElementById("ranking-level");
+
+    if (rankingSelect) {
+        rankingSelect.addEventListener("change", (e) => {
+            carregarRankingMemoria(e.target.value);
+        });
+    }
+
     init();
     initMobileMenu();
+    carregarRankingMemoria(1);
 });
