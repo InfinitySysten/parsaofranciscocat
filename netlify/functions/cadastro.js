@@ -45,11 +45,37 @@ exports.handler = async (event) => {
       user_id = result.rows[0].id;
 
     } catch (err) {
-      if (err.code === "23505") { // unique violation
-        await client.end();
-        return resp(409, { erro: "Username já existe" });
-      }
-      throw err;
+        if (err.code === "23505") {
+            // usuário já existe → tenta login
+
+            const loginRes = await client.query(
+            "SELECT id, password_hash FROM usuarios WHERE username = $1",
+            [username]
+            );
+
+            const row = loginRes.rows[0];
+
+            // valida senha
+            if (!row || !(await bcrypt.compare(password, row.password_hash))) {
+            await client.end();
+            return resp(401, { erro: "Usuário já existe e senha inválida" });
+            }
+
+            // gera token
+            const token = jwt.sign(
+            {
+                user_id: row.id,
+                username
+            },
+            JWT_SECRET,
+            { expiresIn: "7d" }
+            );
+
+            await client.end();
+            return resp(200, { token, username });
+        }
+
+        throw err;
     }
 
     await client.end();
