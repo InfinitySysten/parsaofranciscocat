@@ -67,6 +67,13 @@
                         <li><a href="jornal.html" class="nav-link">Jornal</a></li>
                     </ul>
                 </nav>
+                <div class="auth-area" id="auth-area">
+                    <button id="login-btn" class="btn btn-primary">Login</button>
+
+                    <div id="user-menu" class="user-menu" style="display:none;">
+                        <img id="user-avatar" class="user-avatar" src="" alt="avatar">
+                    </div>
+                </div>
                 <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
             </div>
         </div>
@@ -132,6 +139,27 @@
         </div>
     </footer>
 
+    <script src="../js/api.js"></script>
     <script src="../js/jogos.js"></script> <!-- Para o menu mobile funcionar -->
+
+    <!--Modal de Cadastro-->
+    <div id="auth-modal" class="auth-modal" style="display:none;">
+        <div class="auth-modal-content">
+            <h3>Criar conta</h3>
+
+            <input type="text" id="auth-user" placeholder="Usuário">
+            <input type="password" id="auth-pass" placeholder="Senha">
+
+            <div class="avatar-select" id="avatar-select">
+                <img src="https://i.pravatar.cc/100?img=1" data-avatar="1">
+                <img src="https://i.pravatar.cc/100?img=2" data-avatar="2">
+                <img src="https://i.pravatar.cc/100?img=3" data-avatar="3">
+                <img src="https://i.pravatar.cc/100?img=4" data-avatar="4">
+                <img src="https://i.pravatar.cc/100?img=5" data-avatar="5">
+            </div>
+
+            <button id="auth-submit" class="btn btn-primary">Confirmar</button>
+        </div>
+    </div>
 </body>
 </html>
