@@ -1,0 +1,999 @@
+/* ==================================================
+   components.css
+   Componentes reutilizáveis e interativos do site (cards, alertas, badges etc.).
+   ================================================== */
+   
+/* Componentes Reutilizáveis */
+
+/* Loading Spinner */
+.loading {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--accent-color);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Card Component */
+.card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+.card-body {
+    line-height: 1.6;
+}
+
+.card-footer {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Badge Component */
+.badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.badge-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.badge-light {
+    background: var(--accent-color);
+    color: var(--text-color);
+}
+
+/* Novo estilo para o badge de destaque */
+.badge-destaque {
+    background: #FFD700; /* Dourado */
+    color: var(--primary-color);
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Alert Component */
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    border-left: 4px solid;
+}
+
+.alert-info {
+    background: #E3F2FD;
+    border-color: #2196F3;
+    color: #1565C0;
+}
+
+.alert-success {
+    background: #E8F5E8;
+    border-color: #4CAF50;
+    color: #2E7D32;
+}
+
+.alert-warning {
+    background: #FFF3E0;
+    border-color: #FF9800;
+    color: #F57C00;
+}
+
+.alert-error {
+    background: #FFEBEE;
+    border-color: #F44336;
+    color: #C62828;
+}
+
+/* Breadcrumb Component */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: '>';
+    margin-left: 0.5rem;
+    opacity: 0.5;
+}
+
+.breadcrumb-item.active {
+    color: var(--primary-color);
+    opacity: 1;
+    font-weight: 600;
+}
+
+.breadcrumb-link {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb-link:hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+/* Tabs Component */
+.tabs {
+    margin-bottom: 2rem;
+}
+
+.tab-list {
+    display: flex;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1.5rem;
+    list-style: none;
+}
+
+.tab-item {
+    margin-right: 2rem;
+}
+
+.tab-link {
+    display: block;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: var(--transition);
+}
+
+.tab-link:hover,
+.tab-link.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--secondary-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Accordion Component */
+.accordion {
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    background: var(--accent-color);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.accordion-header:hover {
+    background: #F0F0DC;
+}
+
+.accordion-title {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.accordion-icon {
+    transition: var(--transition);
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    display: none;
+    padding: 1.5rem;
+    background: var(--card-background);
+}
+
+.accordion-content.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 200px;
+    }
+}
+
+/* Tooltip Component */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--text-color);
+    color: white;
+    text-align: center;
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--text-color) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Progress Bar Component */
+.progress {
+    width: 100%;
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+/* Image Gallery Component */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.image-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.image-item:hover {
+    transform: scale(1.05);
+}
+
+.image-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.image-item:hover img {
+    transform: scale(1.1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.image-item:hover .image-overlay {
+    opacity: 1;
+}
+
+/* Pagination Component */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem 0;
+    list-style: none;
+}
+
+.pagination-item {
+    display: inline-block;
+}
+
+.pagination-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.pagination-link:hover,
+.pagination-link.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.pagination-link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-link.disabled:hover {
+    background: transparent;
+    color: var(--text-color);
+    border-color: #ddd;
+}
+
+/* Search Component */
+.search-box {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+.search-button {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    border: none;
+    padding: 1rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button:hover {
+    background: #7A3A0F;
+}
+
+/* Filter Component */
+.filter-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Dropdown Component */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: var(--card-background);
+    border: 2px solid #ddd;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 150px;
+    transition: var(--transition);
+}
+
+.dropdown-toggle:hover {
+    border-color: var(--primary-color);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card-background);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown.active .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.conteudo-adicional {
+    background-color: #f9f9f9; /* Um fundo levemente diferente */
+    border-left: 4px solid var(--primary-color); /* Uma borda de destaque */
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem; /* Já adicionado com a classe mt-4, mas bom ter aqui */
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+/* Estilos para os elementos dentro do conteúdo adicional, se necessário */
+.conteudo-adicional h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.conteudo-adicional ul {
+    list-style-position: inside;
+    padding-left: 0.5rem;
+}
+
+.noticia-conteudo-expansivel {
+    max-height: 40px; /* Altura inicial, mostrando apenas um trecho */
+    overflow: hidden; /* Esconde o resto do conteúdo */
+    position: relative; /* Necessário para o efeito de degradê */
+    transition: max-height 0.5s ease-in-out; /* Animação suave */
+}
+
+/* Efeito de degradê no final do texto para indicar que há mais conteúdo */
+.noticia-conteudo-expansivel::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to top, var(--card-background), transparent);
+}
+
+/* Classe para quando o conteúdo estiver expandido */
+.noticia-conteudo-expansivel.expandido {
+    max-height: 1000px; /* Uma altura grande o suficiente para caber qualquer conteúdo */
+}
+
+/* Remove o degradê quando expandido */
+.noticia-conteudo-expansivel.expandido::after {
+    display: none;
+}
+
+/* Estilo para o botão "Leia Mais" */
+.btn-expandir {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+.btn-expandir:hover {
+    text-decoration: underline;
+}
+
+/* --- Estilos para a Seção de Membros --- */
+
+.membros-section {
+    margin-top: 2.5rem; /* Espaçamento acima da seção de membros */
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee; /* Linha sutil para separar do conteúdo anterior */
+}
+
+.membros-section h3 {
+    text-align: center;
+    font-family: var(--font-primary);
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+/* A grade que organiza os membros em colunas */
+.membros-grid {
+    display: grid;
+    /* Cria colunas flexíveis com no mínimo 200px e no máximo 1 fração do espaço.
+       Isso permite que 4 ou 5 cards se ajustem por linha em telas maiores. */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem; /* Espaçamento entre os cards */
+}
+
+/* Estilo para o card de cada membro */
+.membro-card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    text-align: center;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 3px solid var(--secondary-color);
+}
+
+.membro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.membro-foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Deixa a foto redonda */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    margin-bottom: 1rem;
+    border: 3px solid var(--card-background);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.membro-info {
+    font-size: 0.9rem;
+}
+
+.membro-info p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.membro-info span {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+.conteudo-adicional {
+    background-color:#FAFAFA; /* Um tom muito leve, derivado das suas cores */
+    border-left: 4px solid var(--secondary-color);
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    box-shadow: var(--shadow);
+}
+
+.conteudo-adicional h3 {
+    font-family: var(--font-alt);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- Estilos para a Lista de Necessidades (Vicentinos) --- */
+.conteudo-adicional ul {
+    list-style: none; /* Remove os marcadores padrão */
+    padding-left: 0;
+}
+
+.conteudo-adicional ul li {
+    background: var(--card-background);
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 0.5rem;
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--primary-color);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.conteudo-adicional ul li:hover {
+    transform: translateX(5px);
+    background-color: #fff;
+    box-shadow: var(--shadow-hover);
+}
+
+/* --- Estilos para a Galeria de Fotos --- */
+/* O componente .image-grid já está bem estilizado, vamos apenas garantir o espaçamento */
+.conteudo-adicional .image-grid {
+    margin-top: 0; /* Remove a margem padrão para se ajustar ao h3 */
+}
+
+/* --- Estilos para o Acordeão de Eventos (Capela) --- */
+/* Usando o componente de acordeão já existente e garantindo que ele se encaixe bem */
+.conteudo-adicional .accordion {
+    border: none; /* Remove a borda dupla, já que o container tem uma */
+    box-shadow: none;
+}
+
+.conteudo-adicional .accordion-item {
+    border-color: #e0e0e0;
+}
+
+.conteudo-adicional .accordion-header {
+    background: #f5f0e6; /* Um tom um pouco mais escuro que o fundo */
+    transition: var(--transition);
+}
+
+.conteudo-adicional .accordion-header:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.conteudo-adicional .accordion-item.active .accordion-header {
+    background: var(--primary-color);
+}
+
+.conteudo-adicional .accordion-item.active .accordion-header .accordion-title {
+    color: white;
+}
+
+.conteudo-adicional .accordion-content {
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+/* --- Estilos para a Seção de Redes Sociais --- */
+.social-links-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas pequenas */
+    gap: 1rem; /* Espaçamento entre os links */
+    margin-top: 1rem;
+}
+
+.social-link-item {
+    display: inline-flex; /* Alinha ícone e texto */
+    align-items: center;
+    gap: 0.5rem; /* Espaço entre o ícone e o texto */
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.social-link-item:hover {
+    background-color: #7A3A0F; /* Um tom mais escuro do primário para o hover */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.social-link-item i {
+    font-size: 1.2rem; /* Tamanho do ícone */
+}
+
+/* --- Componente Toast / Balão Flutuante --- */
+.jogos-toast {
+    position: fixed; /* Fica fixo na tela durante o scroll */
+    bottom: 20px;    /* 20px de distância do fundo */
+    right: 20px;     /* 20px de distância da direita */
+    width: 320px;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-top: 4px solid var(--primary-color);
+    z-index: 2000; /* Garante que fique acima de outros conteúdos */
+    
+    /* Animação de entrada e saída */
+    transform: translateX(120%); /* Começa fora da tela */
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s;
+}
+
+.jogos-toast.show {
+    transform: translateX(0); /* Move para a posição final */
+    opacity: 1;
+    visibility: visible;
+}
+
+.toast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.toast-header strong {
+    color: var(--primary-color);
+    font-family: var(--font-alt);
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #aaa;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.toast-close:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.toast-body {
+    padding: 1rem;
+    text-align: center;
+}
+
+.toast-body p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilo para um botão menor */
+.btn-sm {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 480px) {
+    .jogos-toast {
+        width: auto; /* Ocupa a largura disponível com margens */
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+/* Adicione este CSS ao seu arquivo de componentes ou estilo */
+
+.card-noticia {
+    display: flex;
+    margin-bottom: 1.5rem;
+    cursor: pointer; /* Indica que o card é clicável */
+    transition: var(--transition);
+}
+
+/* Estilo para o card de destaque */
+.card-noticia.is-destaque {
+    border: 2px solid var(--primary-color);
+    background-color: #FFFBEA; /* Fundo mais claro para destacar */
+    box-shadow: 0 8px 15px rgba(174, 141, 70, 0.2); /* Sombra mais proeminente */
+    padding: 1.5rem; /* Mais preenchimento */
+    margin-bottom: 2rem;
+}
+
+.card-noticia.is-destaque:hover {
+    transform: translateX(0); /* Remove a animação lateral para o destaque */
+    box-shadow: 0 10px 20px rgba(174, 141, 70, 0.3);
+}
+
+.card-noticia:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.noticia-imagem {
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+.noticia-conteudo {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5rem;
+}
+
+.card-noticia.is-destaque .noticia-conteudo {
+    padding-left: 1rem; /* Ajuste de padding para o destaque */
+}
+
+.noticia-data {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 0.25rem;
+}
+
+.noticia-titulo {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.card-noticia.is-destaque .noticia-titulo {
+    font-size: 1.4rem; /* Título maior para destaque */
+    font-weight: 700;
+}
+
+.noticia-subtitulo {
+    font-size: 0.95rem;
+    flex-grow: 1; /* Ocupa o espaço disponível */
+}
+
+.card-noticia.is-destaque .noticia-subtitulo {
+    font-size: 1.05rem; /* Subtítulo maior para destaque */
+}
+
+.leia-mais-link {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-top: 0.5rem;
+    align-self: flex-start; /* Alinha à esquerda */
+}
+
+.card-noticia.is-destaque .leia-mais-link {
+    color: #B8860B; /* Cor de destaque mais forte */
+}
+
+/* Estilo para o container de paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    list-style: none;
+}
+
+/* Adicione este código ao seu arquivo CSS */
+
+.modal-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.btn-modal-nav {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-modal-nav:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-modal-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #ccc;
+    color: #ccc;
+}
