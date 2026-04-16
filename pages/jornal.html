@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornal da Paróquia - Paróquia São Francisco de Assis</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="print-page-header">
+        Jornal da Paróquia São Francisco de Assis - Continuação
+    </div>
+
+    <!-- Reutilize o mesmo Header do index.html -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1>Paróquia São Francisco de Assis</h1>
+                    <span class="tagline">Comunidade de Fé e Amor</span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="../index.html" class="nav-link">Início</a></li>
+                        <li><a href="capelas-pastorais.html" class="nav-link">Capelas e Pastorais</a></li>
+                        <li><a href="jogos.html" class="nav-link">Jogos</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="jornal" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Jornal da Paróquia</h2>
+                    <p class="section-subtitle">Fique por dentro das últimas notícias e acontecimentos.</p>
+                </div>
+
+                <!-- ===== INÍCIO DOS FILTROS ===== -->
+                <div class="events-filters">
+                    <div class="filter-row">
+                        <!-- Filtro de Categoria (Exemplo) -->
+                        <select id="filtro-categoria" class="filter-select">
+                            <option value="todas">Todas as Notícias</option>
+                            <option value="avisos">Avisos</option>
+                            <option value="eventos">Eventos</option>
+                            <option value="catequese">Catequese</option>
+                        </select>
+
+                        <!-- Filtro de Data (Mês/Ano) -->
+                        <select id="filtro-data" class="filter-select">
+                            <option value="todas">Todas as Datas</option>
+                            <!-- Opções de data serão adicionadas via JS -->
+                        </select>
+
+                        <!-- Campo de Busca -->
+                        <div class="search-box">
+                            <input type="text" id="filtro-busca" class="search-input" placeholder="Buscar por título ou palavra-chave...">
+                        </div>
+
+                        <!-- Botão para Imprimir -->
+                        <button id="imprimir-btn" class="btn btn-primary">Imprimir</button>
+
+                        <!-- Botão para Limpar Filtros -->
+                        <button id="limpar-filtros-btn" class="btn btn-secondary">Limpar</button>
+                    </div>
+                </div>
+                <!-- ===== FIM DOS FILTROS ===== -->
+
+                <!-- Notícias em Destaque -->
+                <div id="noticias-destaque" class="destaques-grid">
+                    <!-- Destaques serão carregados aqui -->
+                </div>
+
+                <hr class="divider">
+
+                <h2 class="section-title" id="titulo-recentes" style="text-align: left; font-size: 2rem; margin-top: 2rem;">Notícias Recentes</h2>
+
+                <!-- Lista de Notícias Recentes -->
+                <div id="noticias-recentes" class="noticias-lista">
+                    <!-- Notícias recentes serão carregadas aqui -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reutilize o mesmo Footer do index.html -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Paróquia São Francisco</h3>
+                    <p>Uma comunidade de fé, esperança e amor</p>
+                </div>
+                <div class="footer-links">
+                    <p>&copy; 2025 Paróquia São Francisco. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-impressao" class="modal">
+	    <div class="modal-content">
+	        <div class="modal-header-unified">
+	            <h3 class="modal-title-header">Filtros de Impressão</h3>
+	            <button class="btn-modal-nav btn-modal-close" id="modal-close-impressao" title="Fechar">x</button>
+	        </div>
+	        <div id="modal-body-impressao">
+	            <div class="form-group">
+	                <label for="data-inicial">Data Inicial:</label>
+	                <input type="date" id="data-inicial" class="form-control">
+	            </div>
+	            <div class="form-group">
+	                <label for="data-final">Data Final:</label>
+	                <input type="date" id="data-final" class="form-control">
+	            </div>
+	            <div class="form-group">
+	                <label for="categoria-impressao">Categoria (Opcional):</label>
+	                <select id="categoria-impressao" class="filter-select">
+	                    <option value="todas">Todas as Notícias</option>
+	                    <option value="avisos">Avisos</option>
+	                    <option value="eventos">Eventos</option>
+	                    <option value="catequese">Catequese</option>
+	                </select>
+	            </div>
+                <div class="form-group">
+                    <label for="capa-impressao">Escolher Matéria de Capa (Opcional):</label>
+                    <select id="capa-impressao" class="filter-select">
+                        <option value="auto">Destaque Automático (mais recente)</option>
+                        <!-- As notícias serão carregadas aqui via JS -->
+                    </select>
+                </div>
+	            <button id="gerar-impressao-btn" class="btn btn-primary mt-3">Gerar Impressão</button>
+	        </div>
+	    </div>
+	</div>
+
+    <div id="modal-noticia" class="modal">
+        <div class="modal-content">
+            <div id="modal-body">
+                <!-- O conteúdo da notícia será injetado aqui pelo JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jornal.js"></script>
+</body>
+</html>
