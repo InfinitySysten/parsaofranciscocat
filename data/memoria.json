@@ -1,0 +1,35 @@
+{
+  "titulo": "Jogo da Memória da Fé",
+  "niveis": [
+    {
+      "id": "facil",
+      "nome": "Fácil",
+      "pares": 6,
+      "grid": "4x3"
+    },
+    {
+      "id": "medio",
+      "nome": "Médio",
+      "pares": 8,
+      "grid": "4x4"
+    },
+    {
+      "id": "dificil",
+      "nome": "Difícil",
+      "pares": 10,
+      "grid": "5x4"
+    }
+  ],
+  "cartas": [
+    { "id": "sao-francisco", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761231128/sao_francisco_hjhudj.jpg", "nome": "São Francisco" },
+    { "id": "santa-clara", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761231275/santa_clara_glcnr0.jpg", "nome": "Santa Clara" },
+    { "id": "biblia", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761231346/biblia_fsullh.jpg", "nome": "Bíblia" },
+    { "id": "calice", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/calice_kqc04n.jpg", "nome": "Cálice" },
+    { "id": "igreja-matriz", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761225700/igreja_externa_i5k1nw.jpg", "nome": "Igreja Matriz" },
+    { "id": "vela", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/vela_n2f74n.avif", "nome": "Vela" },
+    { "id": "terco", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/terco_qlzhfs.jpg" },
+    { "id": "cruz", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/cruz_vtgibr.avif", "nome": "Cruz" },
+    { "id": "sino", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/sino_mltnx5.jpg", "nome": "Sino" },
+    { "id": "anjo", "imagem": "https://res.cloudinary.com/dexnu74dn/image/upload/v1761237725/anjo_xpe5ns.jpg", "nome": "Anjo" }
+  ]
+}
