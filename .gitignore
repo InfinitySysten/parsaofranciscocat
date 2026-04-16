@@ -1,2 +1,5 @@
 images/galeria/estrutura/igreja_externa.jpg
 data/app.py
+
+# Local Netlify folder
+.netlify
