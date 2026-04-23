@@ -955,6 +955,21 @@
     color: #B8860B; /* Cor de destaque mais forte */
 }
 
+.jornal-reader {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.jornal-reader img {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+}
+
 /* Estilo para o container de paginação */
 .pagination {
     display: flex;
