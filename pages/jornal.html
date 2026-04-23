@@ -46,57 +46,24 @@
     </header>
 
     <main class="main">
-        <section id="jornal" class="section">
+        <section class="section">
             <div class="container">
+
                 <div class="section-header">
-                    <h2 class="section-title">Jornal da Paróquia</h2>
-                    <p class="section-subtitle">Fique por dentro das últimas notícias e acontecimentos.</p>
+                    <h2 class="section-title" id="titulo-edicao">Jornal da Paróquia</h2>
+                    <p class="section-subtitle" id="subtitulo-edicao">
+                        Carregando edição...
+                    </p>
                 </div>
 
-                <!-- ===== INÍCIO DOS FILTROS ===== -->
-                <div class="events-filters">
-                    <div class="filter-row">
-                        <!-- Filtro de Categoria (Exemplo) -->
-                        <select id="filtro-categoria" class="filter-select">
-                            <option value="todas">Todas as Notícias</option>
-                            <option value="avisos">Avisos</option>
-                            <option value="eventos">Eventos</option>
-                            <option value="catequese">Catequese</option>
-                        </select>
-
-                        <!-- Filtro de Data (Mês/Ano) -->
-                        <select id="filtro-data" class="filter-select">
-                            <option value="todas">Todas as Datas</option>
-                            <!-- Opções de data serão adicionadas via JS -->
-                        </select>
-
-                        <!-- Campo de Busca -->
-                        <div class="search-box">
-                            <input type="text" id="filtro-busca" class="search-input" placeholder="Buscar por título ou palavra-chave...">
-                        </div>
-
-                        <!-- Botão para Imprimir -->
-                        <button id="imprimir-btn" class="btn btn-primary">Imprimir</button>
-
-                        <!-- Botão para Limpar Filtros -->
-                        <button id="limpar-filtros-btn" class="btn btn-secondary">Limpar</button>
-                    </div>
-                </div>
-                <!-- ===== FIM DOS FILTROS ===== -->
-
-                <!-- Notícias em Destaque -->
-                <div id="noticias-destaque" class="destaques-grid">
-                    <!-- Destaques serão carregados aqui -->
+                <!-- seletor de edição -->
+                <div style="margin-bottom: 20px;">
+                    <select id="seletor-edicao" class="filter-select"></select>
                 </div>
 
-                <hr class="divider">
+                <!-- LEITOR DO JORNAL -->
+                <div id="reader" class="jornal-reader"></div>
 
-                <h2 class="section-title" id="titulo-recentes" style="text-align: left; font-size: 2rem; margin-top: 2rem;">Notícias Recentes</h2>
-
-                <!-- Lista de Notícias Recentes -->
-                <div id="noticias-recentes" class="noticias-lista">
-                    <!-- Notícias recentes serão carregadas aqui -->
-                </div>
             </div>
         </section>
     </main>
@@ -115,50 +82,6 @@
             </div>
         </div>
     </footer>
-
-    <div id="modal-impressao" class="modal">
-	    <div class="modal-content">
-	        <div class="modal-header-unified">
-	            <h3 class="modal-title-header">Filtros de Impressão</h3>
-	            <button class="btn-modal-nav btn-modal-close" id="modal-close-impressao" title="Fechar">x</button>
-	        </div>
-	        <div id="modal-body-impressao">
-	            <div class="form-group">
-	                <label for="data-inicial">Data Inicial:</label>
-	                <input type="date" id="data-inicial" class="form-control">
-	            </div>
-	            <div class="form-group">
-	                <label for="data-final">Data Final:</label>
-	                <input type="date" id="data-final" class="form-control">
-	            </div>
-	            <div class="form-group">
-	                <label for="categoria-impressao">Categoria (Opcional):</label>
-	                <select id="categoria-impressao" class="filter-select">
-	                    <option value="todas">Todas as Notícias</option>
-	                    <option value="avisos">Avisos</option>
-	                    <option value="eventos">Eventos</option>
-	                    <option value="catequese">Catequese</option>
-	                </select>
-	            </div>
-                <div class="form-group">
-                    <label for="capa-impressao">Escolher Matéria de Capa (Opcional):</label>
-                    <select id="capa-impressao" class="filter-select">
-                        <option value="auto">Destaque Automático (mais recente)</option>
-                        <!-- As notícias serão carregadas aqui via JS -->
-                    </select>
-                </div>
-	            <button id="gerar-impressao-btn" class="btn btn-primary mt-3">Gerar Impressão</button>
-	        </div>
-	    </div>
-	</div>
-
-    <div id="modal-noticia" class="modal">
-        <div class="modal-content">
-            <div id="modal-body">
-                <!-- O conteúdo da notícia será injetado aqui pelo JavaScript -->
-            </div>
-        </div>
-    </div>
 
     <script src="../js/jornal.js"></script>
 </body>
