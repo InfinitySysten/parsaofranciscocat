@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8f7a66">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Via Sacra 2048</title>
+     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/jogos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<style>
+    main{
+        margin-bottom: 40px;
+        justify-items: center;
+    }
+</style>
+<body>
+    <header class="header">
+        <!-- Header reutilizado com caminhos corrigidos -->
+        <div class="container"><div class="header-content">
+            <div class="logo"><h1>Paróquia São Francisco de Assis</h1><span class="tagline">Comunidade de Fé e Amor</span></div>
+            <nav class="nav" id="nav"><ul class="nav-list">
+                <li><a href="../jogos.html" class="nav-link">Voltar</a></li>
+            </ul></nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+        </div></div>
+    </header>
+
+    <main class="main">
+        <div class="game-container">
+            <h1>Via Sacra 2048</h1>
+
+            <div class="levels">
+                <button class="btn level-btn" data-level="easy">Fácil (6x6)</button>
+                <button class="btn level-btn" data-level="medium">Médio (5x5)</button>
+                <button class="btn level-btn" data-level="hard">Difícil (4x4)</button>
+            </div>
+            
+            <div class="score-container">
+                <div class="score-box">
+                    <div class="score-label">Pontuação</div>
+                    <div class="score-value" id="score">0</div>
+                </div>
+                <div class="score-box">
+                    <div class="score-label">Melhor</div>
+                    <div class="score-value" id="bestScore">0</div>
+                </div>
+                <div class="timer-box">
+                    <div class="score-label">Tempo</div>
+                    <div class="timer-value" id="timer">00:00</div>
+                </div>
+            </div>
+
+            <div class="game-board">
+                <div class="paused-indicator" id="pausedIndicator">⏸ PAUSADO</div>
+                <div class="grid-container" id="gridContainer">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn" id="newGameBtn">🎮 Novo Jogo</button>
+                <button class="btn" id="undoBtn">↶ Desfazer</button>
+                <button class="btn" id="reactivateMessagesBtn">🔔 Mostrar mensagens</button>
+            </div>
+
+            <div class="instructions">
+                <div class="instructions-title">Como Jogar</div>
+                <div class="instructions-text">
+                    Use as setas do teclado para mover. Combine duas estações iguais da Via Sacra para avançar na jornada espiritual.
+                </div>
+                <div class="arrow-keys">
+                    <div class="arrow-key" data-direction="up">↑</div>
+                    <div class="arrow-key" data-direction="left">←</div>
+                    <div class="arrow-key" data-direction="down">↓</div>
+                    <div class="arrow-key" data-direction="right">→</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="stationModal">
+        <div class="modal-content">
+            <h2 id="stationTitle">Nova Estação</h2>
+            <div class="station-number" id="stationNumber">2</div>
+            <p id="stationDescription">Descrição da estação aqui.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-secondary" id="dontShowAgainBtn">Não mostrar mais</button>
+                <button class="modal-btn modal-btn-primary" id="continueBtn">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="gameOverModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Fim de Jogo!</h2>
+            <p id="modalMessage">Pontuação: <strong id="finalScore">0</strong></p>
+            <button class="btn" id="restartBtn">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Paróquia São Francisco. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/via_sacra_2048.js"></script>
+</body>
+</html>
