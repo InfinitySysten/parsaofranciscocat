@@ -1,0 +1,15 @@
+{
+  "edicoes": [
+    {
+      "id": "2026-04",
+      "titulo": "Abril 2026",
+      "url": "../data/jornal/2026-04.json"
+    },
+    {
+      "id": "2026-03",
+      "titulo": "Março 2026",
+      "url": "../data/jornal/2026-03.json"
+    }
+  ]
+}
+
